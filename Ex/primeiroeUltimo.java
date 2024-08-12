@@ -1,9 +1,9 @@
 public class primeiroeUltimo {
     public static void main(String[] args){
-        System.out.println(isShared(88, 71));
+        System.out.println(hasSharedDigit(88, 71));
     }
-    public static boolean isShared(int n1, int n2){
-        if(n1 < 0 || n1 > 99 || n2 < 0 || n2 > 99){
+    public static boolean hasSharedDigit(int n1, int n2){
+        if(n1 < 10 || n1 > 99 || n2 < 10 || n2 > 99){
             return false;
         }
         int primeiroDigiton1 = 0;
