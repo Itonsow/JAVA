@@ -1,3 +1,4 @@
+package src;
 public class primeiroeUltimo {
     public static void main(String[] args){
         System.out.println(hasSharedDigit(88, 71));

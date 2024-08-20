@@ -1,3 +1,4 @@
+package src;
 public class PerfectNumber {
     public static void main(String[] args){
         System.out.println(isPerfectNumber(7));

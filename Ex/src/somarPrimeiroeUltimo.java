@@ -1,3 +1,4 @@
+package src;
 public class somarPrimeiroeUltimo {
     public static void main(String[] args){
         System.out.println(sumFirstAndLastDigit(5));

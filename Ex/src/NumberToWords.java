@@ -1,3 +1,4 @@
+package src;
 public class NumberToWords {
     public static void main(String[] args){
         System.out.println(getDigitCount(-2));

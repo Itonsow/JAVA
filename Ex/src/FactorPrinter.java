@@ -1,3 +1,4 @@
+package src;
 public class FactorPrinter {
     public static void main(String[] args){
         printFactors(10);

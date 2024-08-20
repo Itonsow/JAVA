@@ -1,3 +1,4 @@
+package src;
 public class GreatestCommonDivisor {
     public static void main(String[] args){
         System.out.println(getGreatestCommonDivisor(100,120));

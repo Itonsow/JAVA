@@ -1,3 +1,4 @@
+package src;
 public class hasSameLastDigit {
     public static void main(String[] args){
         System.out.println(hasSameLastDigit(9, 99, 19));

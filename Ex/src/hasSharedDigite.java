@@ -1,3 +1,4 @@
+package src;
 public class hasSharedDigite {
     public static void main(String[] args){
         System.out.println(hasSharedDigit(11,21));

@@ -1,3 +1,4 @@
+package src;
 public class NumberPalindrome {
     public static void main(String[] args){
         System.out.println(isPalindrome(-222));

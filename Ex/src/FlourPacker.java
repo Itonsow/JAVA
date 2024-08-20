@@ -1,3 +1,4 @@
+package src;
 public class FlourPacker {
     public static void main(String[] args){
         System.out.println(canPack(1,0,5));

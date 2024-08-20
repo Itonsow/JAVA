@@ -1,3 +1,4 @@
+package src;
 public class somaPar {
     public static void main(String[] args){
         System.out.println(getEvenDigitSum(2000));
