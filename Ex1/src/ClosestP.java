@@ -24,11 +24,12 @@ public class ClosestP {
     public static void resp(int n, int[] lista){
         int temp = 0;
         for(int i = 0; i < n-1; i++){
-            int num = lista[i] - lista[i+1];
+            float num = lista[i] + lista[i+1];
             if(num < 0){
                 num *= -1;
             }
-            if(num != 1){
+            if(num % 2 != 0){
+                System.out.printf("%.2f", num);
                 temp++;
             }
         }

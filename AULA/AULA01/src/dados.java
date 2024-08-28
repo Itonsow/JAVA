@@ -32,6 +32,10 @@ public class dados {
         this.nome = nome;
     }
 
+    public int getID(){
+        return idConta;
+    }
+
     public String getNome(){
         return nome;
     }
@@ -47,5 +51,9 @@ public class dados {
         }else{
             System.out.println("\nAcao nao realizada, senha invalida!\n");
         }
+    }
+
+    public void imprimeDados(){
+        System.out.printf("[%d] --- Nome: %s --- Limite: R$%.2f\n", idConta, nome, limite);
     }
 }
