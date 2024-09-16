@@ -2,31 +2,48 @@ import java.util.ArrayList;
 import java.util.Scanner;
 public class account1 {
     public static void main(String[] args){
+        boolean menuconfirm0 = true;
         boolean menuConfirm1 = true;
         ArrayList<dados> dadosLista = new ArrayList<>();
         dadosLista.add(new dados("Sungus", 0, 1000));
         Scanner input = new Scanner(System.in);
         do{
-            menuImprime1();
-            int opcoes1 = input.nextInt();
-            input.nextLine();
-            switch(opcoes1){
-                case 1:
-                    dadosLista.add(coletarDados());
-                    break;
-                case 2:
-                    menuImprime2(dadosLista);
-                    int id = procurar(dadosLista, input);
-                    if(id != -1){
-                        menu2(dadosLista, id, input);
+            int menuInicial = menu0(input);
+            if(menuInicial == 1){
+                do{
+                    menuImprime1();
+                    int opcoes1 = input.nextInt();
+                    input.nextLine();
+                    switch(opcoes1){
+                        case 1:
+                            dadosLista.add(coletarDados());
+                            break;
+                        case 2:
+                            menuImprime2(dadosLista);
+                            int id = procurar(dadosLista, input);
+                            if(id != -1){
+                                menu2(dadosLista, id, input);
+                            }
+                            break;
+                        case 0:
+                            System.out.println("Voltando...");
+                            menuConfirm1 = false;
+                            break;
                     }
-                    break;
-                case 0:
-                    System.out.println("Saindo...");
-                    menuConfirm1 = false;
-                    break;
+                }while(menuConfirm1 == true);
+            }else if(menuInicial == 2){
+                int id = procurar(dadosLista, input);
+                System.out.println("Digite a senha: ");
+                input.nextLine();
+                String senhaDigitada = input.nextLine();
+                int verificar = dadosLista.get(id).verSenha(senhaDigitada);
+                if(verificar == 1){
+                    menu2(dadosLista, id, input);
+                }
+            }else if(menuInicial == 0){
+                menuconfirm0 = false;
             }
-        }while(menuConfirm1 == true);
+        }while(menuconfirm0 == true);
     }
 
     public static int procurar(ArrayList<dados> listaDados, Scanner input){
@@ -35,10 +52,36 @@ public class account1 {
         for(int i = 0; i < listaDados.size(); i++){
             if(id == listaDados.get(i).getID()){
                 return i;
+            }else{
+                System.out.println("Conta nao encontrada, voltando...");
             }
-            System.out.println("Conta nao encontrada, voltando...");
         }
         return -1;
+    }
+    public static int menu0(Scanner input){
+        int escolha = 0;
+        boolean menuConfirmG = true;
+        do{
+            menuEscolha();
+            int opcoes0 = input.nextInt();
+            input.nextLine();
+            switch(opcoes0){
+                case 1:
+                    System.out.println("Gerente");
+                    escolha = 1;
+                    menuConfirmG = false;
+                    break;
+                case 2:
+                    System.out.println("Cliente");
+                    escolha = 2;
+                    menuConfirmG = false;
+                    break;
+                default:
+                    break;
+            }
+        }while(menuConfirmG == true);
+
+        return escolha;
     }
 
     public static dados coletarDados(){
@@ -116,6 +159,13 @@ public class account1 {
         System.out.println("[3] - Retirar");
         System.out.println("[4] - Mudar Senha");
         System.out.println("[0] - Voltar");
+        System.out.println("\n-=-=-=-=-=-=-=-=-=-=-=-\n");
+    }
+
+    public static void menuEscolha(){
+        System.out.println("\n-=-=-=-=-=-=-=-=-=-=-=-\n");
+        System.out.println("[1] Gerente");
+        System.out.println("[2] Cliente");
         System.out.println("\n-=-=-=-=-=-=-=-=-=-=-=-\n");
     }
 }

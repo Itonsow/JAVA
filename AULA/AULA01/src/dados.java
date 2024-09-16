@@ -1,9 +1,11 @@
+import java.time.LocalDateTime;
 public class dados {
     private String nome;
     private double saldo = 0;
     private String senha = "0000";
     private int idConta;
     private double limite;
+    private Date openingDate;
 
     public dados(){
     }
@@ -12,6 +14,20 @@ public class dados {
         this.nome = nome;
         this.idConta = idConta;
         this.limite = limite;
+        LocalDateTime now = LocalDateTime.now();
+        this.openingDate = new Date(now.getDayOfMonth(), now.getMonthValue(), now.getYear());
+    }
+
+    public int verSenha(String senhaVer){
+        if(senhaVer.equals(senha)){
+            return 1;
+        }else{
+            return 0;
+        }
+    }
+
+    public Date getDate(){
+        return openingDate;
     }
 
     public void withdraw(double retirarD){
@@ -54,6 +70,7 @@ public class dados {
     }
 
     public void imprimeDados(){
+        System.out.printf("%s - ", openingDate.imprimeStr());
         System.out.printf("[%d] --- Nome: %s --- Limite: R$%.2f\n", idConta, nome, limite);
     }
 }
